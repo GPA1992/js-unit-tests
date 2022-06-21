@@ -10,7 +10,26 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
-
-const average = () => {};
+const average = (arr) => {
+  const sumArr = arr.reduce((previousValue, currentValue) => previousValue + currentValue, 0);
+  const arrLen = arr.length;
+  const result = sumArr / arrLen;
+  const arrType = arr.every((elem) => typeof elem === 'number');
+  if (!arr.length === true) {
+    return;
+  }
+  if (arrType === false) {
+    return;
+  }
+  return Math.round(result);
+};
 
 module.exports = average;
+//
+/* const myArray = [1, 'g', 2, 3, 7];
+const typeOfArr = myArray.every((elem) => typeof elem !== 'number');
+if (typeOfArr === true) {
+  console.log(true);
+} else {
+  console.log(false);
+} */
