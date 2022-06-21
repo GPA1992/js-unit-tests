@@ -25,11 +25,3 @@ const average = (arr) => {
 };
 
 module.exports = average;
-//
-/* const myArray = [1, 'g', 2, 3, 7];
-const typeOfArr = myArray.every((elem) => typeof elem !== 'number');
-if (typeOfArr === true) {
-  console.log(true);
-} else {
-  console.log(false);
-} */
