@@ -97,13 +97,17 @@ const createMenu = (obj) => ({
   fetchMenu: () => obj,
   consumption: [],
   order(str) {
-    this.consumption.push(str);
+  this.consumption.push(str);
   },
- 
-});
+  pay() {
+  const cardapio = {};
+  Object.assign(cardapio, obj.food, obj.drink);
+  let count = 0;
+    for (let itens of this.consumption) {
+    count += cardapio[itens];
+  }
+  return count * 1.1;
+  },  
+  });
 
 module.exports = createMenu;
-
-const obj = createMenu();
-obj.order('coxinha');
-console.log(obj.consumption);

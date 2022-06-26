@@ -87,54 +87,44 @@ describe('10 - Implemente os casos de teste e a função `createMenu`', () => {
 
     // TESTE 5: Verifique se, ao chamar uma função associada à chave `order` no objeto retornado,
     // passando uma string como parâmetro (como `objetoRetornado.order('coxinha')`), tal string é adicionada
-    // ao array retornado em `objetoRetornado.consumption`.
-
-    
-    // const objetoRetornado = createMenu(objetoQualquer);
-    // objetoRetornado.order("coxinha");
-    // objetoRetornado.consumption // Retorno: ["coxinha"]
-    const func = createMenu();
-    func.order('coxinha');
-    expect(func.consumption).toEqual(expect.arrayContaining(['coxinha']));
+    // ao array retornado em `objetoRetornado.consumption`.    
+    const func = createMenu(); // const objetoRetornado = createMenu(objetoQualquer);
+    func.order('coxinha'); // objetoRetornado.order("coxinha");
+    expect(func.consumption).toEqual(expect.arrayContaining(['coxinha'])); // objetoRetornado.consumption // Retorno: ["coxinha"]
+    //```
     // Agora faça o PASSO 3 no arquivo `src/restaurant.js`.
     // --------------------------------------------------------------------------------------
 
-    // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.
-    // ```
-   
-    func.order('agua');
-    func.order('sopa');
-    func.order('sashimi');
+    // TESTE 6: Verifique se, ao adicionar três pedidos, dentre bebidas e comidas, o array `objetoRetornado.consumption` contém os itens pedidos.    
+    func.order('agua'); // objetoRetornado.order("agua");
+    func.order('sopa'); // objetoRetornado.order("sopa");
+    func.order('sashimi'); // objetoRetornado.order("sashimi");
     //objetoRetornado.consumption // Retorno: ["coxinha", "agua", "sopa", "sashimi"]
-    expect(func.consumption).toEqual(expect.arrayContaining(['coxinha', 'agua', 'sopa', 'sashimi']));
-    
+    expect(func.consumption).toEqual(expect.arrayContaining(['coxinha', 'agua', 'sopa', 'sashimi']));    
     // ```
 
     // Agora faça o TESTE 7 deste arquivo.
     // --------------------------------------------------------------------------------------
 
     // TESTE 7: Verifique se a função `order` aceita que pedidos repetidos sejam acrescidos a `consumption`.
-    // ```
     const func2 = createMenu();
-    func2.order('coxinha');
-    func2.order('sopa');
-    func2.order('coxinha');
+    func2.order('coxinha'); // objetoRetornado.order('coxinha');
+    func2.order('sopa'); // objetoRetornado.order('agua');
+    func2.order('coxinha'); // objetoRetornado.order('coxinha');
     // objetoRetornado.consumption // Retorno: ['coxinha', 'agua', 'coxinha']
     expect(func2.consumption).toEqual(expect.arrayContaining(['coxinha', 'sopa', 'coxinha']));
-    
     // ```
+
 
     // Agora faça o TESTE 8 deste arquivo.
     // --------------------------------------------------------------------------------------
 
     // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
-    // ```
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.order('agua');
-    // objetoRetornado.order('coxinha');
-    // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos
-    // ```
-  
+    const func3 = createMenu({ food: { coxinha: 2, sopa: 3 }, drink: { agua: 4, cerveja: 4 } });
+    func3.order('coxinha'); // objetoRetornado.order('coxinha');
+    func3.order('agua'); // objetoRetornado.order('agua');
+    func3.order('coxinha'); // objetoRetornado.order('coxinha');    
+    expect(func3.pay()).toEqual(8.8); // objetoRetornado.pay() // Retorno: somaDosPreçosDosPedidos () - 2 + 4 + 2 -> 8 * 1.1 = 8.8// 
     // Agora faça o PASSO 4 no arquivo `src/restaurant.js`.
   });
 });
